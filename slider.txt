@@ -10,12 +10,12 @@
  );
  
  var preloadArr = new Array();
- var i;
+ var j;
  
  /* preload images */
- for(i=0; i < imgArr.length; i++){
- preloadArr[i] = new Image();
- preloadArr[i].src = imgArr[i];
+ for(j=0; j < imgArr.length; j++){
+ preloadArr[j] = new Image();
+ preloadArr[j].src = imgArr[j];
  }
  
  var currImg = 1;
