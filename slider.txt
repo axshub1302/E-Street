@@ -1,0 +1,32 @@
+<script type="text/javascript" src="path/to/js/jquery.js"></script>
+<script language="JavaScript" type="text/javascript">
+ $(document).ready(function(){
+ 
+ var imgArr = new Array( // relative paths of images
+ 'path/to/images/1.jpg',
+ 'path/to/images/2.jpg',
+ 'path/to/images/3.jpg',
+ 'path/to/images/4.jpg'
+ );
+ 
+ var preloadArr = new Array();
+ var i;
+ 
+ /* preload images */
+ for(i=0; i < imgArr.length; i++){
+ preloadArr[i] = new Image();
+ preloadArr[i].src = imgArr[i];
+ }
+ 
+ var currImg = 1;
+ var intID = setInterval(changeImg, 6000);
+ 
+ /* image rotator */
+ function changeImg(){
+ $('#masthead').animate({opacity: 0}, 1000, function(){
+ $(this).css('background','url(' + preloadArr[currImg++%preloadArr.length].src +') top center no-repeat');
+ }).animate({opacity: 1}, 1000);
+ }
+ 
+ });
+</script>
